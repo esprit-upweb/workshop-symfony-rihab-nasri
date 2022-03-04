@@ -1,0 +1,17 @@
+<h1>la liste des classroom</h1>
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>NAME</td>
+        <td>Action</td>
+    </tr>
+    {% for classroom in tabClassroom %}
+        <tr>
+            <td>{{ classroom.id }}</td>
+            <td>{{  classroom.name|upper}}</td>
+         >
+            <td><a href="{{ path('classroomdelete',{'id':classroom.id})}}">Delete </a>
+
+
+    {% endfor %}
+</table>

@@ -5,15 +5,20 @@
         <td>Username</td>
         <td>Email</td>
         <td>Moyenne</td>
+        <td>Classroom</td>
         <td>Action</td>
     </tr>
     {% for student in tabStudent %}
     <tr>
         <td>{{ student.id }}</td>
-        <td>{{  student.username}}</td>
+        <td>{{  student.username|upper}}</td>
         <td>{{student.email  }}</td>
         <td>{{ student.moyenne }}</td>
-        <td><a href="{{ path('studentsDelete',{'id':student.id})}}">Delete </a></td>
+        <td>{{ student.classroom }}</td>
+        <td><a href="{{ path('studentsDelete',{'id':student.id})}}">Delete </a>
+            <a href="{{ path('updatestudents',{'id':student.id})}}">Update </a></td>
     </tr>
+
     {% endfor %}
 </table>
+{{ tabStudent|length }}
